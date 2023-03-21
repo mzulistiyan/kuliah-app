@@ -23,6 +23,8 @@ Route::get('/obat/create', [ObatController::class, 'create'])->name('create.obat
 Route::post('/obat/store', [ObatController::class, 'store'])->name('store.obat');
 Route::get('/obat/edit/{id}', [ObatController::class, 'edit'])->name('edit.obat');
 Route::post('/obat/update/{id}', [ObatController::class, 'update'])->name('update.obat');
+Route::get('/obat/delete/{id}', [ObatController::class, 'delete'])->name('delete.obat');
+
 
 
 

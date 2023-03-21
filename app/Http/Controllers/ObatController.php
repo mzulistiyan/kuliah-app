@@ -31,8 +31,7 @@ class ObatController extends Controller
             ->with('success', 'Obat created successfully.');
     }
 
-    public function edit(Request $request, $id)
-    {
+    public function edit(Request $request, $id){
         $obat = Obat::find($id);
         return view('obat.update', compact('obat'));
     }
@@ -47,5 +46,13 @@ class ObatController extends Controller
         $obat->save(); 
         return redirect()->route('index.obat')
         ->with('success', 'Obat updated successfully.');
+    }
+
+    public function delete(Request $request)
+    {
+        $obat = Obat::find($request->id);
+        $obat->delete();
+        return redirect()->route('index.obat')
+            ->with('success', 'Obat deleted successfully');
     }
 }

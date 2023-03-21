@@ -33,7 +33,7 @@
       <td>{{$obat->tipe}}</td>
       <td>{{$obat->jumlah}}</td>
       <td>{{$obat->harga_satuan}}</td>
-      <td><a href="" type="button" class="btn btn-primary">Ubah</button></td>
+      <td><a href="{{ route('edit.obat', $obat->id) }}" type="button" class="btn btn-primary">Ubah</button></td>
         <td><a href="{{ route('create.obat') }}" type="button" class="btn btn-secondary">Simpan</button></td>
     </tr>
     @endforeach

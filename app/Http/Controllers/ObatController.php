@@ -34,12 +34,18 @@ class ObatController extends Controller
     public function edit(Request $request, $id)
     {
         $obat = Obat::find($id);
-        return view('obat.edit', compact('obat'));
+        return view('obat.update', compact('obat'));
     }
 
     public function update(Request $request){
-        $obat = Obat::find($request->id); 
+        $obat = Obat::find($request->id);
+        $obat->name = $request->name;
+        $obat->deskripsi = $request->deskripsi;
+        $obat->tipe = $request->tipe;
+        $obat->jumlah = $request->jumlah;
+        $obat->harga_satuan = $request->harga_satuan;
         $obat->save(); 
-        return response()->json(['success'=>'Status change successfully.']); 
+        return redirect()->route('index.obat')
+        ->with('success', 'Obat updated successfully.');
     }
 }
